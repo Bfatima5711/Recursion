@@ -1,0 +1,23 @@
+ public void fun(int idx, int n){
+        if(idx>n){
+            return;
+        }
+        System.out.print(idx+" ");
+        fun(idx+1,n);
+    }
+  public void printNos(int n)
+    {
+        //Your code here
+        //Solved using backtracking TC: O(n)
+        if(n<1){
+            return;
+        }
+        printNos(n-1);
+        System.out.print(n+" ");
+        
+        //Solved using recursion TC: O(n)
+
+        fun(1,n);
+    }
+
+
