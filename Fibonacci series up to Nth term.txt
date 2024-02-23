@@ -1,0 +1,30 @@
+
+class Solution {
+    public int fibo(int n){
+        if(n<=1){
+            return n;
+        }
+        return fibo(n-1)+fibo(n-2);
+    }
+    int[] Series(int N) {
+        //Approach 1: Using recursion, TC: O(n2), SC: O(n)
+        code here
+          int res[]=new int[N+1];
+          res[0]=0;
+          res[1]=1;
+          for(int i=2;i<=N;i++){
+              res[i] = fibo(i)%1000000007;
+          }
+          return res;
+          
+          //Approach 2: Using Dynamic Programming, TC: O(n), SC: O(n)
+          int res[]=new int[N+1];
+          res[0]=0;
+          res[1]=1;
+          for(int i=2;i<=N;i++){
+              res[i]=(res[i-1]+res[i-2])%1000000007;
+          }
+         return res;
+    
+    }
+}
