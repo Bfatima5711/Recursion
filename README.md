@@ -124,3 +124,32 @@ Output:
 Problem Link: https://www.geeksforgeeks.org/problems/bubble-sort/1
 
 Note: for code check attached file with name Bubble Sort
+
+
+
+//Easy level : question 6
+
+Problem Statement: Selection Sort
+
+Given:
+Given an unsorted array of size N, use selection sort to sort arr[] in increasing order.
+
+Example 1:
+Input:
+N = 5
+arr[] = {4, 1, 3, 9, 7}
+Output:
+1 3 4 7 9
+
+Explanation:
+Maintain sorted (in bold) and unsorted subarrays.
+Select 1. Array becomes 1 4 3 9 7.
+Select 3. Array becomes 1 3 4 9 7.
+Select 4. Array becomes 1 3 4 9 7.
+Select 7. Array becomes 1 3 4 7 9.
+Select 9. Array becomes 1 3 4 7 9.
+
+Problem Link: https://www.geeksforgeeks.org/problems/selection-sort/1?utm_source=geeksforgeeks&utm_medium=article_practice_tab&utm_campaign=article_practice_tab
+
+Note: for code check attached file with name Selection Sort
+
