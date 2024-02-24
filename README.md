@@ -88,3 +88,22 @@ Problem Link: https://www.geeksforgeeks.org/problems/fibonacci-series-up-to-nth-
 Note: for code check attached file with name Fibonacci series up to Nth term
 
 
+//Easy level : question 4
+
+Problem Statement: Insertion Sort
+
+Given:
+The task is to complete the insert() function which is used to implement Insertion Sort.
+
+
+Example 1:
+Input:
+N = 5
+arr[] = { 4, 1, 3, 9, 7}
+Output:
+1 3 4 7 9
+
+Problem Link: https://www.geeksforgeeks.org/problems/insertion-sort/1
+
+Note: for code check attached file with name Insertion Sort
+
