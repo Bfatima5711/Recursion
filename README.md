@@ -107,3 +107,20 @@ Problem Link: https://www.geeksforgeeks.org/problems/insertion-sort/1
 
 Note: for code check attached file with name Insertion Sort
 
+//Easy level : question 5
+
+Problem Statement: Bubble Sort
+
+Given:
+Given an Integer N and a list arr. Sort the array using bubble sort algorithm.
+
+Example 1:
+Input: 
+N = 5
+arr[] = {4, 1, 3, 9, 7}
+Output: 
+1 3 4 7 9
+
+Problem Link: https://www.geeksforgeeks.org/problems/bubble-sort/1
+
+Note: for code check attached file with name Bubble Sort
