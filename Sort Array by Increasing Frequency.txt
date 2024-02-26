@@ -1,0 +1,36 @@
+class Solution {
+    public int[] frequencySort(int[] nums) {
+         Map<Integer,Integer> map = new HashMap<>();
+        int n = nums.length;
+
+        for(int i=0; i<n; i++){
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        }
+
+        List<Integer> list = new ArrayList<>(map.keySet());
+        //taken a and b are 2 elements of array and we are comparing 
+        //the frequescy here if the frequency of 2 elemets is same then sort 
+        //them decending order of array elements else sort them according to 
+        //frequency count of an element
+
+        Collections.sort(list,(a,b)->{
+            if(map.get(a)==map.get(b)){
+                return b-a;//sorting according to array elements here freq is same
+            }else{
+                return map.get(a)-map.get(b);//sorting according to freq of array 
+                //elements here freq is diffrent
+            }
+        });
+
+        int ans[] = new int[n];
+        int idx = 0;
+
+        for(int element: list){
+            for(int j=0; j<map.get(element); j++){
+                ans[idx++] = element;
+            }
+        }
+        
+        return ans;
+    }
+}
