@@ -1,0 +1,42 @@
+class Solution
+{
+    static void swap(int[] arr, int first, int second){
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+    //Function to sort an array using quick sort algorithm.
+    static void quickSort(int arr[], int low, int high)
+    {
+        // code here
+        if(low<high){
+            int pIdx = partition(arr,low,high);
+            quickSort(arr,low,pIdx-1);
+            quickSort(arr,pIdx+1,high);
+        }
+    }
+    static int partition(int arr[], int low, int high)
+    {
+        // your code here
+        int pivot = arr[low];
+        int i = low;
+        int j = high;
+        
+        while(i<j){
+            while(arr[i]<=pivot && i<high){
+                i++;
+            }
+            while(arr[j]>pivot && j>low){
+                j--;
+            }
+            
+            if(i<j){
+                swap(arr,i,j);
+            }
+        }
+        
+        swap(arr,low,j);
+        
+        return j;
+    } 
+}
