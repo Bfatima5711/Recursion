@@ -1,0 +1,74 @@
+******Problem statement********
+
+******** Subsets*********
+
+Given an integer array nums of unique elements, return all possible 
+subsets(the power set).
+
+The solution set must not contain duplicate subsets. Return the solution in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3]
+Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+Example 2:
+
+Input: nums = [0]
+Output: [[],[0]]
+ 
+
+Constraints:
+
+1 <= nums.length <= 10
+-10 <= nums[i] <= 10
+All the numbers of nums are unique.
+
+
+*****code******
+
+class Solution {
+    public void FindArrSubset(int[] nums, int ind, int n, List<Integer> list,List<List<Integer>> ans){
+        if(ind == n){
+            ans.add(new ArrayList<Integer>(list));
+            return;
+        }
+
+        list.add(nums[ind]);
+        System.out.println(list);
+        FindArrSubset(nums, ind+1, n, list, ans);
+        System.out.println(ind);
+        list.remove(list.size()-1);
+        FindArrSubset(nums, ind+1, n, list, ans);
+    }
+    public List<List<Integer>> subsets(int[] nums) {
+        //Approach 1: Using Power Set TC:O(2^n) * O(n) SC:O(1) if consider arraylist sapce 
+        // then SC:O(2^n)
+        int n = nums.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        //1<<2 => is nothing but 1 along with 2 zeros means (100 in binary) which is nothing 
+        //but the 100 in binary indecimal is 4 so we can say 1<<2 is nothing but the 2^2 
+        //so (1<<n) means 1 and n zeros so it is 2^n
+
+        for(int num=0; num<(1<<n); num++){//O(2^n) time
+            List<Integer> list = new ArrayList<>();
+            for(int j=0; j<n; j++){//O(n) time
+                if((num & (1<<j)) != 0){
+                    list.add(nums[j]);   
+                } 
+            }
+            ans.add(new ArrayList<>(list));
+        }
+        return ans;
+
+        //Approach 1: Using Recursion  TC:O(2^n)  SC:O(2^n) recursive stack space
+
+        int n = nums.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+
+        FindArrSubset(nums, 0, n, list, ans);
+        return ans;
+    }
+}
