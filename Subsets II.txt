@@ -1,0 +1,76 @@
+*********Problem statement**********
+*******Subsets II*************
+
+
+Given an integer array nums that may contain duplicates, return all possible 
+subsets
+ (the power set).
+
+The solution set must not contain duplicate subsets. Return the solution in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,2]
+Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
+Example 2:
+
+Input: nums = [0]
+Output: [[],[0]]
+ 
+
+Constraints:
+
+1 <= nums.length <= 10
+-10 <= nums[i] <= 10
+
+********Code********
+class Solution {
+    public void findArrSubset(int[] nums, int ind, int n, List<Integer> list,
+    List<List<Integer>> ans){
+        if(ind == n){
+            if(!ans.contains(list)){
+                ans.add(new ArrayList<>(list));
+            }
+            return;
+        }
+
+        list.add(nums[ind]);
+        findArrSubset(nums, ind+1, n, list, ans);
+        list.remove(list.size()-1);
+        findArrSubset(nums, ind+1, n, list, ans);
+    }
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        //before this qution first wahtch the solution for subset leedcode 78 answer
+        //TC: O(2^n*n)  + O(nlogn)   SC:O(1) using power set
+        int n = nums.length;
+        Arrays.sort(nums);
+        List<List<Integer>> ans = new ArrayList<>();
+
+        for(int num=0; num<(1<<n); num++){
+            List<Integer> list = new ArrayList<>();
+            for(int j=0; j<n; j++){
+                if((num & (1<<j)) != 0){
+                    list.add(nums[j]);
+                }
+            }
+            if(!ans.contains(list)){
+                ans.add(new ArrayList<>(list));
+            }   
+        }
+
+        return ans;
+
+
+        
+        //TC: O(2^n)  + O(nlogn)   SC:O(2^n) using recursion
+        int n = nums.length;
+        Arrays.sort(nums);
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        findArrSubset(nums, 0, n, list, ans);
+        return ans;
+        
+    }
+}
